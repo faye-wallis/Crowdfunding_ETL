@@ -1,11 +1,11 @@
 CREATE TABLE category(
-category_id INT NOT NULL,
+category_id VARCHAR(10) NOT NULL,
 category VARCHAR(50),
 PRIMARY KEY (category_id)
 );
 
 CREATE TABLE subcategory(
-subcategory_id INT NOT NULL,
+subcategory_id VARCHAR(10) NOT NULL,
 subcategory VARCHAR(50),
 PRIMARY KEY (subcategory_id)
 );
@@ -22,17 +22,17 @@ CREATE TABLE campaign(
 cf_id INT NOT NULL,
 contact_id INT,
 company_name VARCHAR(50),
-blurb VARCHAR(50),
-goal VARCHAR(50),
-pledged DECIMAL,
+description VARCHAR(60),
+goal INT,
+pledged INT,
 outcome VARCHAR(50),
 backers_count INT,
 country VARCHAR(50),
 currency VARCHAR(50),
-launched_at DATETIME,
-deadline DATETIME,
-category_id INT,
-subcategory_id INT,
+launched_date DATE,
+end_date DATE,
+category_id VARCHAR(10),
+subcategory_id VARCHAR(10),
 PRIMARY KEY (cf_id),
 FOREIGN KEY (contact_id) REFERENCES contacts(contact_id),
 FOREIGN KEY (category_id) REFERENCES category(category_id),
